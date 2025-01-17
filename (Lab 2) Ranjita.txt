@@ -1,0 +1,158 @@
+1. WAP for creating a mini calculator for performing a particular operation based on user choice. ex. if the 
+user will select the addition operation then the output should be the addition of the given two nos.
+
+1.--->
+package com.demo;
+
+public class MiniCalculator 
+{
+
+	public static void main(String[] args) {
+		double num1 = 15;
+        double num2 = 3;
+        
+        System.out.println("Welcome to the Mini Calculator!!!");
+        System.out.println("---------------------------------");
+        
+        // Perform addition
+        double sum = num1 + num2;
+        System.out.println("Addition: " + num1 + " + " + num2 + " = " + sum);
+        
+        // Perform subtraction
+        double difference = num1 - num2;
+        System.out.println("Subtraction: " + num1 + " - " + num2 + " = " + difference);
+        
+        // Perform multiplication
+        double product = num1 * num2;
+        System.out.println("Multiplication: " + num1 + " * " + num2 + " = " + product);
+        
+        // Perform division
+        if (num2 != 0) {
+            double quotient = num1 / num2;
+            System.out.println("Division: " + num1 + " / " + num2 + " = " + quotient);
+        } else {
+            System.out.println("Division: Cannot divide by zero");
+        }
+	}
+}
+
+Output:
+	
+Welcome to the Mini Calculator!!!
+---------------------------------
+Addition: 15.0 + 3.0 = 18.0
+Subtraction: 15.0 - 3.0 = 12.0
+Multiplication: 15.0 * 3.0 = 45.0
+Division: 15.0 / 3.0 = 5.0
+
+
+
+2. WAP for creating a banking Application .you have to take input from the user whether the user wants
+   to deposit, withdraw, or find a current balance.
+
+2.--->
+package com.demo;
+
+import java.util.*;
+
+public class BankingApplication {
+	
+	public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        double balance = 1000.0; // Initial balance
+        
+        System.out.println("\n---- Banking Application ----");
+
+        while (true) {
+            System.out.println("\nWhat do you want to do?");
+            System.out.println("1. Deposit");
+            System.out.println("2. Withdraw");
+            System.out.println("3. Check Balance");
+            System.out.println("4. Exit");
+            System.out.print("Enter your choice (1-4): ");
+
+            int choice = scanner.nextInt();
+
+            switch (choice) {
+                case 1: // Deposit
+                    System.out.print("Enter amount to deposit: ");
+                    double depositAmount = scanner.nextDouble();
+                    balance = balance + depositAmount; 
+                    System.out.println("Amount deposited successfully.");
+                    break;
+
+                case 2: // Withdraw
+                    System.out.print("Enter amount to withdraw: ");
+                    double withdrawAmount = scanner.nextDouble();
+                    if (withdrawAmount <= balance) {
+                        balance = balance - withdrawAmount; 
+                        System.out.println("Amount withdrawn successfully.");
+                    } else {
+                        System.out.println("Insufficient balance.");
+                    }
+                    break;
+
+                case 3: // Check Balance
+                    System.out.println("Your current balance is: " + balance);
+                    break;
+
+                case 4: // Exit
+                    System.out.println("Exiting the application.");
+                    System.out.println("Thank you for using the banking application!");
+                    scanner.close(); 
+                    System.exit(0); 
+
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+            }
+        }
+    }
+}
+
+Output:
+	
+---- Banking Application ----
+
+What do you want to do?
+1. Deposit
+2. Withdraw
+3. Check Balance
+4. Exit
+Enter your choice (1-4): 2
+Enter amount to withdraw: 2000
+Insufficient balance.
+
+What do you want to do?
+1. Deposit
+2. Withdraw
+3. Check Balance
+4. Exit
+Enter your choice (1-4): 1
+Enter amount to deposit: 1000
+Amount deposited successfully.
+
+What do you want to do?
+1. Deposit
+2. Withdraw
+3. Check Balance
+4. Exit
+Enter your choice (1-4): 2
+Enter amount to withdraw: 2000
+Amount withdrawn successfully.
+
+What do you want to do?
+1. Deposit
+2. Withdraw
+3. Check Balance
+4. Exit
+Enter your choice (1-4): 3
+Your current balance is: 0.0
+
+What do you want to do?
+1. Deposit
+2. Withdraw
+3. Check Balance
+4. Exit
+Enter your choice (1-4): 4
+Exiting the application.
+Thank you for using the banking application!
