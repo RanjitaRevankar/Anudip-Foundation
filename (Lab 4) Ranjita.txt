@@ -1,0 +1,121 @@
+1. Write a program to demonstrate  use of  type casting in java.
+  print result after type casting.
+
+1.--->
+
+
+package com.demo;
+
+public class TypeCastingDemo 
+{
+	 public static void main(String[] args) {
+	        System.out.println("=== Type Casting Demonstration ===\n");
+
+	        int intValue = 100;
+	        double doubleValue = intValue; // int to double
+	        
+	        System.out.println("Widening Type Casting:");
+	        System.out.println("Integer Value       : " + intValue);
+	        System.out.println("Converted to Double : " + doubleValue + "\n");
+
+	        double doubleNum = 99.99;
+	        int intNum = (int) doubleNum; // double to int
+	        
+	        System.out.println("Narrowing Type Casting:");
+	        System.out.println("Double Value        : " + doubleNum);
+	        System.out.println("Converted to Integer: " + intNum + "\n");
+
+	        char charValue = 'A';
+	        int charToInt = charValue; // char to int
+	        
+	        System.out.println("Character to Integer Casting:");
+	        System.out.println("Character Value     : " + charValue);
+	        System.out.println("Converted to Integer: " + charToInt + "\n");
+
+	        
+	        int intChar = 66;
+	        char intToChar = (char) intChar; // int to char
+	        
+	        System.out.println("Integer to Character Casting:");
+	        System.out.println("Integer Value       : " + intChar);
+	        System.out.println("Converted to Char   : " + intToChar + "\n");
+
+	        double doubleByte = 130.75;
+	        byte byteValue = (byte) doubleByte; // double to byte
+	        
+	        System.out.println("Double to Byte Casting:");
+	        System.out.println("Double Value        : " + doubleByte);
+	        System.out.println("Converted to Byte   : " + byteValue);
+	    }
+
+}
+
+Output :
+
+=== Type Casting Demonstration ===
+
+Widening Type Casting:
+Integer Value       : 100
+Converted to Double : 100.0
+
+Narrowing Type Casting:
+Double Value        : 99.99
+Converted to Integer: 99
+
+Character to Integer Casting:
+Character Value     : A
+Converted to Integer: 65
+
+Integer to Character Casting:
+Integer Value       : 66
+Converted to Char   : B
+
+Double to Byte Casting:
+Double Value        : 130.75
+Converted to Byte   : -126
+
+
+
+
+2. Write a program to demonstrate use of local, instance and static variables in java.
+
+2.--->
+
+package com.demo;
+
+public class Variable {
+	
+	    // Instance variable
+	    int instanceVar = 10;
+	    
+	    // Static variable
+	    static String staticVar = "I am a static variable";
+	    
+	    public void showVariables() {
+	        // Local variable
+	        int localVar = 5;
+	        
+	        System.out.println("Instance Variable: " + instanceVar);
+	        System.out.println("Local Variable: " + localVar);
+	        System.out.println("Static Variable: " + staticVar);
+	    }
+	    
+	    public static void main(String[] args) {
+	        Variable obj = new Variable();
+	        obj.showVariables();
+	    }
+	}
+
+
+Output :
+
+Instance Variable: 10
+Local Variable: 5
+Static Variable: I am a static variable
+
+
+
+
+
+
+
