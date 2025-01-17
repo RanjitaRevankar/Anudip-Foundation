@@ -1,0 +1,80 @@
+Java_Architecture (LAB 1)
+
+1)WRITE JAVA PROGRAM TO PRINT "HELLO WORLD" MESSAGE?
+
+1.---> 
+
+package com.demo;
+
+public class Helloworld
+{
+	public static void main(String[] args) 
+	
+	{
+		  System.out.println("HELLO WORLD");
+		  
+	}
+
+
+}
+
+Output:
+	HELLO WORLD
+
+
+2)WRITE AJAVA PROGRAM TO DEMO ABOUT ALL JAVA PRIMITIVE DATATYPES?
+
+2.--->
+
+package com.demo;
+
+public class PrimitiveDataTypes 
+{
+	 public static void main(String[] args) {
+		    // Byte
+		    byte b = 20;
+		    System.out.println("Byte: " + b);
+
+		    // Short
+		    short s = 40;
+		    System.out.println("Short: " + s);
+
+		    // Int
+		    int i = 12;
+		    System.out.println("Int: " + i);
+
+		    // Long
+		    long l = 50L;
+		    System.out.println("Long: " + l);
+
+		    // Float
+		    float f = 60.6f;
+		    System.out.println("Float: " + f);
+
+		    // Double
+		    double d = 75.5;
+		    System.out.println("Double: " + d);
+
+		    // Boolean
+		    boolean bool = true;
+		    System.out.println("Boolean: " + bool);
+
+		    // Char
+		    char c = 'A';
+		    System.out.println("Char: " + c);
+		  }
+
+	
+
+}
+
+
+Output:
+	Byte: 20
+	Short: 40
+	Int: 12
+	Long: 50
+	Float: 60.6
+	Double: 75.5
+	Boolean: true
+	Char: A
