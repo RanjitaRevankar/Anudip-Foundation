@@ -1,0 +1,73 @@
+
+1. Write a program to demonstrate all primitive datatypes in Java.
+
+1--->
+package com.demo;
+
+public class PrimitiveDataType
+{
+	 public static void main(String[] args)
+		  {
+		    System.out.println("Primitive Data Types in Java");
+
+		    System.out.println("1. Byte: " + (byte) 10);
+		    System.out.println("2. Short: " + (short) 20);
+		    System.out.println("3. Int: " + 30);
+		    System.out.println("4. Long: " + 40L);
+		    System.out.println("5. Float: " + 54.4f);
+		    System.out.println("6. Double: " + 80.6);
+		    System.out.println("7. Boolean: " + true);
+		    System.out.println("8. Char: " + 'R');
+		  }
+		
+}
+
+Output:
+
+Primitive Data Types in Java
+1. Byte: 10
+2. Short: 20
+3. Int: 30
+4. Long: 40
+5. Float: 54.4
+6. Double: 80.6
+7. Boolean: true
+8. Char: R
+
+
+
+2. Write a program to input student marks of multiple subject. print total of marks, 
+result depending on percentage.
+
+2--->
+
+package com.demo;
+
+public class StudentMarks 
+{
+	public static void main(String[] args) {
+		double total = 85 + 78 + 90 + 65 + 88; // Example marks sum
+        double percentage = total / 5; // Number of subjects
+
+        String result = (percentage >= 75) ? "Distinction" :
+                        (percentage >= 60) ? "First Class" :
+                        (percentage >= 50) ? "Second Class" :
+                        (percentage >= 35) ? "Pass" : "Fail";
+
+        System.out.printf("\n--- Result ---\nTotal Marks: %.2f\nPercentage: %.2f%%\nResult: %s\n", total, percentage, result);
+    }
+
+}
+
+Output:
+
+	--- Result ---
+	Total Marks: 406.00
+	Percentage: 81.20%
+	Result: Distinction
+
+
+
+
+
+	
