@@ -1,0 +1,129 @@
+1. create a banking application to deposit and withdraw money.
+   use super keyword in created classes.
+
+1.-->
+
+package laball;
+
+//Base class
+class BankAccount {
+ protected double balance;
+
+ // Constructor
+ public BankAccount(double balance) {
+     this.balance = balance;
+ }
+
+ // Method to deposit money
+ public void deposit(double amount) {
+     balance += amount;
+     System.out.println("Deposited: " + amount);
+     System.out.println("New Balance: " + balance);
+ }
+
+ // Method to withdraw money
+ public void withdraw(double amount) {
+     if (amount <= balance) {
+         balance -= amount;
+         System.out.println("Withdrawn: " + amount);
+         System.out.println("Remaining Balance: " + balance);
+     } else {
+         System.out.println("Insufficient funds!");
+     }
+ }
+}
+
+//Derived class using super keyword
+class SavingsAccount extends BankAccount {
+ private double interestRate;
+
+ // Constructor
+ public SavingsAccount(double balance, double interestRate) {
+     super(balance); // Calling parent class constructor
+     this.interestRate = interestRate;
+ }
+
+ // Method to add interest
+ public void addInterest() {
+     double interest = balance * (interestRate / 100);
+     System.out.println("Interest Added: " + interest);
+     super.deposit(interest); // Calling parent class method using super
+ }
+}
+
+//Main class to demonstrate banking application
+public class BankingApp {
+ public static void main(String[] args) {
+     SavingsAccount myAccount = new SavingsAccount(5000, 5);
+     System.out.println("Initial Balance: " + myAccount.balance);
+     myAccount.deposit(2000);
+     myAccount.withdraw(1000);
+     myAccount.addInterest();
+ }
+}
+
+
+Output:
+
+Initial Balance: 5000.0
+Deposited: 2000.0
+New Balance: 7000.0
+Withdrawn: 1000.0
+Remaining Balance: 6000.0
+Interest Added: 300.0
+Deposited: 300.0
+New Balance: 6300.0
+
+
+
+
+2. Write a program to deduce method overriding.
+   use of inheritance is compulsory.
+
+2.-->
+
+package laball;
+
+//Parent class
+class Vehicle {
+ // Method to be overridden
+ void startEngine() {
+     System.out.println("The vehicle engine is starting...");
+ }
+}
+
+//Child class overriding the method
+class Car extends Vehicle {
+ @Override
+ void startEngine() {
+     System.out.println("The car engine starts with a roar!");
+ }
+}
+
+//Another child class
+class Bike extends Vehicle {
+ @Override
+ void startEngine() {
+     System.out.println("The bike engine starts with a vroom!");
+ }
+}
+
+//Main class to demonstrate method overriding and inheritance
+public class MethodOverridingDemo {
+ public static void main(String[] args) {
+     Vehicle myVehicle;  // Parent class reference
+
+     myVehicle = new Car();
+     myVehicle.startEngine(); // Calls Car's startEngine method
+
+     myVehicle = new Bike();
+     myVehicle.startEngine(); // Calls Bike's startEngine method
+ }
+}
+
+Output:
+
+The car engine starts with a roar!
+The bike engine starts with a vroom!
+
+

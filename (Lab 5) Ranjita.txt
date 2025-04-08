@@ -1,0 +1,184 @@
+1. Write a conventional Java class (Bean class) to demonstrate an employee details.
+Additionally, print Employee details 
+Calculate incremented salary of employee.
+Use multiple employees for this example.
+
+1.--->
+package com.demo;
+
+class Employee1 
+{
+
+	private int id;
+    private String name;
+    private double salary;
+    
+    // Constructor
+    public Employee1(int id, String name, double salary) 
+    {
+        this.id = id;
+        this.name = name;
+        this.salary = salary;
+    }
+    
+    // Getters
+    public int getId() {
+        return id;
+    }
+    
+    public String getName() {
+        return name;
+    }
+    
+    public double getSalary() {
+        return salary;
+    }
+    
+    // Method to calculate incremented salary
+    public double calculateIncrementedSalary(double incrementPercentage) {
+        return salary + (salary * incrementPercentage / 100);
+    }
+    
+    // Method to display employee details
+    public void displayDetails() {
+        System.out.println("ID: " + id);
+        System.out.println("Name: " + name);
+        System.out.println("Salary: " + salary);
+    }
+}
+
+--------------------------------------------------------------------------------------------------
+
+package com.demo;
+
+public class EmployeeDetails 
+{
+
+	public static void main(String[] args) 
+	{
+		 // Creating multiple employee objects
+        Employee1 emp1 = new Employee1(16785, "Aditi", 50000);
+        Employee1 emp2 = new Employee1(15678, "Roshan", 60000);
+        
+        // Printing details and incremented salary
+        System.out.println("Employee Details:");
+        emp1.displayDetails();
+        System.out.println("Incremented Salary: " + emp1.calculateIncrementedSalary(5)); // 5% increment
+        
+        System.out.println("\nEmployee Details:");
+        emp2.displayDetails();
+        System.out.println("Incremented Salary: " + emp2.calculateIncrementedSalary(10)); // 10% increment
+    }
+
+
+}
+
+
+Output-->
+
+Employee Details:
+ID: 16785
+Name: Aditi
+Salary: 50000.0
+Incremented Salary: 52500.0
+
+Employee Details:
+ID: 15678
+Name: Roshan
+Salary: 60000.0
+Incremented Salary: 66000.0
+
+
+
+2. Write a conventional Java class (Bean class) to demonstrate student  details.
+Additionally, print student details 
+Calculate percentage of student with all subject marks.
+Print student result.
+Use multiple student for this example.
+
+2.--->
+
+package com.demo;
+
+class Student {
+	
+	private int id;
+    private String name;
+    private int[] marks;
+    
+    // Constructor
+    public Student(int id, String name, int[] marks) {
+        this.id = id;
+        this.name = name;
+        this.marks = marks;
+    }
+    
+    // Method to calculate percentage
+    public double calculatePercentage() {
+        int totalMarks = 0;
+        for (int mark : marks) {
+            totalMarks += mark;
+        }
+        return (double) totalMarks / marks.length;
+    }
+    
+    // Method to determine result
+    public String getResult() {
+        return calculatePercentage() >= 40 ? "Pass" : "Fail";
+    }
+    
+    // Method to display student details
+    public void displayDetails() {
+        System.out.println("------------------------------");
+        System.out.println("Student ID: " + id);
+        System.out.println("Name: " + name);
+        System.out.println("Percentage: " + String.format("%.2f", calculatePercentage()) + "%");
+        System.out.println("Result: " + getResult());
+        System.out.println("------------------------------");
+    }
+
+}
+--------------------------------------------------------------------------------------------------
+
+package com.demo;
+
+public class StudentDetails {
+
+	public static void main(String[] args) {
+		 Student student1 = new Student(401, "Meena", new int[]{85, 75, 95, 85, 75});
+	        Student student2 = new Student(402, "Uma", new int[]{55, 50, 65, 60, 78});
+	        Student student3 = new Student(403, "Rahul", new int[]{45, 40, 25, 40, 38});
+	        
+	        // Printing student details
+	        student1.displayDetails();
+	        student2.displayDetails();
+	        student3.displayDetails();
+
+	}
+
+}
+
+Output---->
+
+------------------------------
+Student ID: 401
+Name: Meena
+Percentage: 83.00%
+Result: Pass
+------------------------------
+------------------------------
+Student ID: 402
+Name: Uma
+Percentage: 61.60%
+Result: Pass
+------------------------------
+------------------------------
+Student ID: 403
+Name: Rahul
+Percentage: 37.60%
+Result: Fail
+------------------------------
+
+
+
+

@@ -1,0 +1,166 @@
+1..Create an interface called "BankAccount" with methods called "deposit" and "withdraw". Create a class called "CheckingAccount" that implements the BankAccount interface and implements the "deposit" and "withdraw" methods. Create an object of the CheckingAccount class and call both the "deposit" and "withdraw" methods.
+
+1.--->
+
+package interface1;
+
+public interface BankAccount 
+{
+    // Method for deposit
+    void deposit(double amount);
+    
+    // Method for withdrawal
+    void withdraw(double amount);
+}
+
+package interface1;
+
+public class CheckingAccount implements BankAccount 
+{
+ private double balance; // Balance of the account
+
+
+ public CheckingAccount(double initialBalance) 
+{
+     this.balance = initialBalance;
+ }
+
+ // Implementing deposit method
+
+ public void deposit(double amount) 
+{
+     balance += amount;
+     System.out.println("Deposited: ₹" + amount);
+     System.out.println("Current Balance: ₹" + balance);
+ }
+
+ // Implementing withdraw method
+ 
+ public void withdraw(double amount) 
+ {
+     if (amount <= balance) {
+         balance -= amount;
+         System.out.println("Withdrawn: ₹" + amount);
+     } else {
+         System.out.println("Insufficient balance!");
+     }
+     System.out.println("Current Balance: ₹" + balance);
+ }
+}
+
+
+package interface1;
+
+public class BankAccountDemo 
+{
+    public static void main(String[] args) 
+    {
+        
+        CheckingAccount myAccount = new CheckingAccount(10000);
+
+        // Calling deposit method
+        myAccount.deposit(6000);
+
+        // Calling withdraw method
+        myAccount.withdraw(4000);
+        
+        // Attempting withdrawal with insufficient balance
+        myAccount.withdraw(1500);
+    }
+}
+
+Output-->
+
+Deposited: ₹6000.0
+Current Balance: ₹16000.0
+Withdrawn: ₹4000.0
+Current Balance: ₹12000.0
+Withdrawn: ₹1500.0
+Current Balance: ₹10500.0
+
+
+
+
+2.Write a Java program to create an interface Resizable with methods resizeWidth(int width) and resizeHeight(int height) that allow an object to be resized. Create a class Rectangle that implements the Resizable interface and implements the resize methods.
+
+2.--->
+
+package interface1;
+
+interface Resizable 
+{
+    // Method to resize the width
+    void resizeWidth(int width);
+    
+    // Method to resize the height
+    void resizeHeight(int height);
+}
+
+
+package interface1;
+
+public class Rectangle1 implements Resizable 
+{
+    private int width, height;
+
+    
+    public Rectangle1(int width, int height) 
+    {
+        this.width = width;
+        this.height = height;
+    }
+
+    // Implementing resizeWidth method
+    
+    public void resizeWidth(int width)
+    {
+        this.width = width;
+        System.out.println("Width resized to: " + this.width);
+    }
+
+    // Implementing resizeHeight method
+    
+    public void resizeHeight(int height)
+    {
+        this.height = height;
+        System.out.println("Height resized to: " + this.height);
+    }
+
+
+    public void displayDimensions() 
+    {
+        System.out.println("Current Dimensions -> Width: " + width + ", Height: " + height);
+    }
+}
+
+
+package interface1;
+
+public class ResizableRectangleDemo 
+{
+    public static void main(String[] args) 
+    {
+        
+        Rectangle1 myRectangle = new Rectangle1(10, 5);
+        
+        // Displaying initial dimensions
+        myRectangle.displayDimensions();
+        
+        // Resizing the rectangle
+        myRectangle.resizeWidth(20);
+        myRectangle.resizeHeight(10);
+        
+        // Displaying the resized dimensions
+        myRectangle.displayDimensions();
+    }
+}
+
+
+
+Output-->
+
+Current Dimensions -> Width: 10, Height: 5
+Width resized to: 20
+Height resized to: 10
+Current Dimensions -> Width: 20, Height: 10
+

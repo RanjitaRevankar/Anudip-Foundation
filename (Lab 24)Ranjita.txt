@@ -1,0 +1,60 @@
+1. write a program for sorting the number in ascending order array without using sort() method.
+
+1.-->
+
+package laball;
+
+import java.util.Arrays;  
+public class SortArrayWithoutSortMethod {
+    public static void main(String[] args) {
+        int[] numbers = {5, 2, 9, 1, 6, 11, 34, 88, 42, 99, 54}; 
+        System.out.println("Original Array: " + Arrays.toString(numbers)); 
+
+        
+        for (int i = 0; i < numbers.length - 1; i++) {
+            for (int j = 0; j < numbers.length - 1 - i; j++) {
+                if (numbers[j] > numbers[j + 1]) {
+                    
+                    int temp = numbers[j];
+                    numbers[j] = numbers[j + 1];
+                    numbers[j + 1] = temp;
+                }
+            }
+        }
+
+        
+        System.out.println("Sorted Array (Ascending Order): " + Arrays.toString(numbers));
+    }
+}
+
+
+Output:-->
+	Original Array: [5, 2, 9, 1, 6, 11, 34, 88, 42, 99, 54]
+	Sorted Array (Ascending Order): [1, 2, 5, 6, 9, 11, 34, 42, 54, 88, 99]
+
+
+--------------------------------------------------------------------------------------------------
+
+2. WAP to find the biggest number of given array.
+
+2.-->
+
+package laball;
+
+import java.util.Arrays; 
+
+public class FindBiggestNumber {
+    public static void main(String[] args) {
+        int[] numbers = {10, 25, 7, 90, 45}; 
+
+        Arrays.sort(numbers);
+
+        
+        System.out.println("Biggest Number: " + numbers[numbers.length - 1]);
+   
+    }
+}
+
+
+Output:-->
+	Biggest Number: 90

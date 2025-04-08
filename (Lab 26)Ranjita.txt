@@ -1,0 +1,137 @@
+1 Write code to declare an array of objects of a class Student with a size of 5 Initialize each object in the array with relevant data (name, age, grade) using a constructor.
+
+1.-->
+
+package laball;
+
+public class Student2 {
+    String name;
+    int age;
+    char grade;
+
+    // Constructor to initialize Student objects
+    Student2(String name, int age, char grade) {
+        this.name = name;
+        this.age = age;
+        this.grade = grade;
+    }
+
+    // Method to display student details
+    void display() {
+        System.out.println("Name: " + name + ", Age: " + age + ", Grade: " + grade);
+    }
+}
+
+package laball;
+
+public class StudentArray {
+    public static void main(String[] args) {
+        // Declare and initialize an array of Student objects
+        Student2[] students = {
+            new Student2("Neha", 18, 'A'),
+            new Student2("Rahul", 19, 'B'),
+            new Student2("Rakshita", 18, 'A'),
+            new Student2("Tara", 20, 'C'),
+            new Student2("Uma", 19, 'B')
+        };
+
+        // Display student details using a loop
+        for (Student2 s : students) {
+            s.display();
+        }
+    }
+}
+
+
+Output:-->
+
+	Name: Neha, Age: 18, Grade: A
+	Name: Rahul, Age: 19, Grade: B
+	Name: Rakshita, Age: 18, Grade: A
+	Name: Tara, Age: 20, Grade: C
+	Name: Uma, Age: 19, Grade: B
+
+--------------------------------------------------------------------------------------------------
+
+2.Define a method calculateAverage that calculates and returns the average value of elements in an integer array. Ensure the array is passed by reference.
+
+2.-->
+
+package laball;
+
+public class ArrayAverage {
+    
+    static double calculateAverage(int[] numbers) {
+        int sum = 0;
+        for (int num : numbers) {
+            sum += num; 
+        }
+        return (double) sum / numbers.length; 
+    }
+
+    public static void main(String[] args) {
+        int[] values = {10, 20, 30, 40, 50}; 
+
+        
+        System.out.println("Average: " + calculateAverage(values));
+    }
+}
+
+
+Output:-->
+
+	Average: 30.0
+
+--------------------------------------------------------------------------------------------------
+
+3. Write a method findStudentByName that searches for a Student object by name within the array. Return the index of the object if found, or -1 if not found.
+
+3.-->
+
+
+package person;
+
+public class Student {
+	String name;
+
+    // Constructor
+    Student(String name) {
+        this.name = name;
+    }
+
+}
+
+
+package person;
+
+public class StudentSearch {
+	
+	 static int findStudentByName(Student[] students, String targetName) {
+	        for (int i = 0; i < students.length; i++) {
+	            if (students[i].name.equals(targetName)) return i; 
+	        }
+	        return -1; 
+	    }
+
+	public static void main(String[] args) {
+		Student[] students = {
+	            new Student("Neha"),
+	            new Student("Rakshita"),
+	            new Student("Rahul"),
+	            new Student("Tara"),
+	            new Student("Uma")
+	        };
+
+	       
+	        System.out.println(findStudentByName(students, "Rahul")); // Output: 2
+	        System.out.println(findStudentByName(students, "Tanu"));    // Output: -1
+	}
+
+}
+
+
+Output:-->
+
+	 2
+	-1
+

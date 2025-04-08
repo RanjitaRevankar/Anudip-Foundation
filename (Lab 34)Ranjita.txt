@@ -1,0 +1,87 @@
+1. Write a program to demonstrate use of  regular expression.
+1-->
+
+package com.lab;
+
+import java.util.regex.*;
+
+public class RegexExample {
+
+    public static void main(String[] args) {
+
+      
+        String email = "example123@gmail.com";
+
+        
+        String pattern = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-z]{2,6}$";
+
+      
+        Pattern regex = Pattern.compile(pattern);
+
+        Matcher matcher = regex.matcher(email);
+
+
+        if (matcher.matches())
+        {
+            System.out.println(email + " is a valid email address.");
+        } else {
+            System.out.println(email + " is NOT a valid email address.");
+        }
+    }
+}
+
+
+
+Output-->
+
+example123@gmail.com is a valid email address.
+
+
+
+2. Write a program to demonstrate use of  wrapper classes
+
+2-->
+
+package com.lab;
+
+public class WrapperExample {
+    public static void main(String[] args) {
+        
+      
+        int a = 10;
+        double b = 5.5;
+        char c = 'A';
+
+        
+        Integer intObj = a;
+        Double doubleObj = b;
+        Character charObj = c;
+
+        
+        System.out.println("Integer object: " + intObj);
+        System.out.println("Double object: " + doubleObj);
+        System.out.println("Character object: " + charObj);
+
+        
+        int x = intObj;
+        double y = doubleObj;
+        char z = charObj;
+
+       
+        System.out.println("Unboxed int: " + x);
+        System.out.println("Unboxed double: " + y);
+        System.out.println("Unboxed char: " + z);
+    }
+}
+
+
+Output-->
+
+Integer object: 10
+Double object: 5.5
+Character object: A
+Unboxed int: 10
+Unboxed double: 5.5
+Unboxed char: A
+
+

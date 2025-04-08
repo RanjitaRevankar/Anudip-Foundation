@@ -1,0 +1,102 @@
+1 . Assign and print the roll number, phone number and address of two students having names "Sam" and "John" respectively by creating two objects of class 'Student'.
+
+1.--->
+
+package com.interfacedemo;
+
+public class Student 
+   {
+    private int rollNumber;
+    private String name;
+    private String phoneNumber;
+    private String address;
+
+    // Constructor to initialize student details
+    public Student(int rollNumber, String name, String phoneNumber, String address) 
+   {
+        this.rollNumber = rollNumber;
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+    }
+
+    // Method to display student details in a structured format
+    public void display() 
+  {
+        System.out.println("+--------------------------------+");
+        System.out.println("| Name        : " + name);
+        System.out.println("| Roll Number : " + rollNumber);
+        System.out.println("| Phone No.   : " + phoneNumber);
+        System.out.println("| Address     : " + address);
+        System.out.println("+--------------------------------+\n");
+    }
+
+    public static void main(String[] args) 
+   {
+        // Creating student objects using constructor
+        Student sam = new Student(101, "Sam", "9955656325", "94/A East Mangalwar Peth,Solapur");
+        Student john = new Student(102, "John", "8852341636", "West Mangalwar Peth,Solapur");
+
+        // Displaying details in a unique format
+        System.out.println(" Student Details \n");
+        sam.display();
+        john.display();
+    }
+}
+
+Output-->
+
+Student Details 
+
++--------------------------------+
+| Name        : Sam
+| Roll Number : 101
+| Phone No.   : 9955656325
+| Address     : 94/A East Mangalwar Peth,Solapur
++--------------------------------+
+
++--------------------------------+
+| Name        : John
+| Roll Number : 102
+| Phone No.   : 8852341636
+| Address     : West Mangalwar Peth,Solapur
++--------------------------------+
+
+
+
+
+2. Print the average of three numbers entered by user by creating a class named 'Average' having a method to calculate and print the average.
+
+2.--->
+
+package com.interfacedemo;
+
+import java.util.*;
+public class Average 
+    {
+
+	public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Input the first number: ");
+        double x = sc.nextDouble();
+        System.out.print("Input the second number: ");
+        double y = sc.nextDouble();
+        System.out.print("Input the third number: ");
+        double z = sc.nextDouble();
+        System.out.print("The average value is " + average(x, y, z)+"\n" );
+    }
+
+  public static double average(double x, double y, double z)
+    {
+        return (x + y + z) / 3;
+    }
+}
+
+Output-->
+
+Input the first number: 25
+Input the second number: 45
+Input the third number: 65
+The average value is 45.0
+

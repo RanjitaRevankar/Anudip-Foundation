@@ -1,0 +1,67 @@
+1)How to reverse a String in place in Java?
+
+1.-->
+
+package laball;
+
+public class ReverseStringInPlace {
+    public static void main(String[] args) {
+        String str = "RanjitaRevankar";
+        char[] charArray = str.toCharArray(); 
+
+        int left = 0, right = charArray.length - 1;
+
+        while (left < right) {
+           
+            char temp = charArray[left];
+            charArray[left] = charArray[right];
+            charArray[right] = temp;
+
+            left++;  // Move left index forward
+            right--; // Move right index backward
+        }
+
+       
+        String reversedStr = new String(charArray);
+        System.out.println("Reversed String: " + reversedStr);
+    }
+}
+
+
+Output:-->
+	Reversed String: raknaveRatijnaR
+
+----------------------------------------------------------------------------------------------
+
+2)How do you count a number of vowels and consonants in a given string? 
+
+2.-->
+
+package laball;
+
+public class CountVowelsConsonants {
+    public static void main(String[] args) {
+        String str = "RanjitaRevankar"; 
+        str = str.toLowerCase(); 
+        
+        int vowels = 0, consonants = 0;
+
+        for (char ch : str.toCharArray()) { 
+            if (Character.isLetter(ch)) { 
+                if ("aeiou".indexOf(ch) != -1) {
+                    vowels++; 
+                } else {
+                    consonants++; 
+                }
+            }
+        }
+
+        System.out.println("Vowels: " + vowels);
+        System.out.println("Consonants: " + consonants);
+    }
+}
+
+
+Output:-->
+	Vowels: 6
+	Consonants: 9

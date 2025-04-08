@@ -1,0 +1,84 @@
+1. Write a program to demonstrate use of break & continue statements.
+
+1.--->
+
+package com.lab;
+
+public class Pattern 
+{
+
+	public static void main(String[] args) 
+	{
+		for(int i=1; i<=10; i++)
+		{
+			if(i == 5)
+				continue;
+			for(int j=1; j<=i; j++)
+			{  
+				if(j == 5)
+					continue;
+				System.out.print(" "+j); 
+				}
+			System.out.println();
+			if(i==10)
+				break;
+		  }
+
+
+	}
+
+}
+
+Output-->
+ 1
+ 1 2
+ 1 2 3
+ 1 2 3 4
+ 1 2 3 4 6
+ 1 2 3 4 6 7
+ 1 2 3 4 6 7 8
+ 1 2 3 4 6 7 8 9
+ 1 2 3 4 6 7 8 9 10
+
+
+
+2. Write a java program to print below mentioned pattern.
+
+2.--->
+
+package com.lab;
+
+public class StarPattern 
+{
+    public static void main(String[] args) 
+    {
+
+        // Outer loop for rows
+        for (int i = 1; i <= 4; i++) {
+            // Print leading spaces
+            for (int j = i; j < 4; j++) {
+                System.out.print(" ");
+            }
+            
+            // Print stars
+            for (int k = 1; k <= i; k++) {
+                System.out.print("* ");
+            }
+
+            // Move to the next line
+            System.out.println();
+        }
+    }
+}
+
+Output-->
+
+   * 
+  * * 
+ * * * 
+* * * * 
+
+
+
+
+

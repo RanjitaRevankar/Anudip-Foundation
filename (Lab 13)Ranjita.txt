@@ -1,0 +1,159 @@
+1.Write a Java program to create an interface Shape with the getArea() method. Create three classes Rectangle, Circle, and Triangle that implement the Shape interface. Implement the getArea() method for each of the three classes.
+
+1.--->
+
+package laball;
+
+//Define the Shape interface
+interface Shape {
+ double getArea(); // Method to calculate area
+}
+
+//Implementing the Rectangle class
+class Rectangle implements Shape {
+ private double length, width;
+
+ // Constructor
+ public Rectangle(double length, double width) {
+     this.length = length;
+     this.width = width;
+ }
+
+ // Implementing the getArea method
+ public double getArea() {
+     return length * width;
+ }
+}
+
+//Implementing the Circle class
+class Circle implements Shape {
+ private double radius;
+ private static final double PI = 3.14159;
+
+ // Constructor
+ public Circle(double radius) {
+     this.radius = radius;
+ }
+
+ // Implementing the getArea method
+ public double getArea() {
+     return PI * radius * radius;
+ }
+}
+
+//Implementing the Triangle class
+class Triangle implements Shape {
+ private double base, height;
+
+ // Constructor
+ public Triangle(double base, double height) {
+     this.base = base;
+     this.height = height;
+ }
+
+ // Implementing the getArea method
+ public double getArea() {
+     return 0.5 * base * height;
+ }
+}
+
+//Main class to test the implementation
+public class InterfaceShape {
+ public static void main(String[] args) {
+     Shape rectangle = new Rectangle(10, 5);
+     Shape circle = new Circle(7);
+     Shape triangle = new Triangle(6, 8);
+
+     System.out.println("Rectangle Area: " + rectangle.getArea());
+     System.out.println("Circle Area: " + circle.getArea());
+     System.out.println("Triangle Area: " + triangle.getArea());
+ }
+}
+
+
+Output:
+	Rectangle Area: 50.0
+	Circle Area: 153.93791
+	Triangle Area: 24.0
+
+
+
+2.To write a Java program to Employee salary details using interface.
+
+2--->
+
+package laball;
+
+import java.util.Scanner;
+
+//Define Employee interface
+interface Employee {
+ double calculateSalary(); // Method to calculate salary
+}
+
+//Full-time Employee class
+class FullTimeEmployee implements Employee {
+ private double basicSalary;
+
+ // Constructor
+ public FullTimeEmployee(double basicSalary) {
+     this.basicSalary = basicSalary;
+ }
+
+ // Implementing the calculateSalary method
+ public double calculateSalary() {
+     return basicSalary;
+ }
+}
+
+//Part-time Employee class
+class PartTimeEmployee implements Employee {
+ private double hourlyRate;
+ private int hoursWorked;
+
+ // Constructor
+ public PartTimeEmployee(double hourlyRate, int hoursWorked) {
+     this.hourlyRate = hourlyRate;
+     this.hoursWorked = hoursWorked;
+ }
+
+ // Implementing the calculateSalary method
+ public double calculateSalary() {
+     return hourlyRate * hoursWorked;
+ }
+}
+
+//Main class
+public class EmployeeSalaryDemo {
+ public static void main(String[] args) {
+     Scanner scanner = new Scanner(System.in);
+
+     // Input for full-time employee
+     System.out.print("Enter Full-Time Employee Salary: ");
+     double fullTimeSalary = scanner.nextDouble();
+     Employee fullTime = new FullTimeEmployee(fullTimeSalary);
+
+     // Input for part-time employee
+     System.out.print("Enter Part-Time Employee Hourly Rate: ");
+     double hourlyRate = scanner.nextDouble();
+     System.out.print("Enter Part-Time Employee Hours Worked: ");
+     int hoursWorked = scanner.nextInt();
+     Employee partTime = new PartTimeEmployee(hourlyRate, hoursWorked);
+
+     // Display salaries
+     System.out.println("Full-Time Employee Salary: " + fullTime.calculateSalary());
+     System.out.println("Part-Time Employee Salary: " + partTime.calculateSalary());
+
+     scanner.close();
+ }
+}
+
+
+Output:
+
+Enter Full-Time Employee Salary: 100000
+Enter Part-Time Employee Hourly Rate: 50000
+Enter Part-Time Employee Hours Worked: 15
+Full-Time Employee Salary: 100000.0
+Part-Time Employee Salary: 750000.0
+

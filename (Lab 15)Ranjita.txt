@@ -1,0 +1,125 @@
+1.Write a java class to deduce demo of encapsulation.
+
+1.-->
+
+package laball;
+
+//Class demonstrating encapsulation
+class Person {
+ // Private data members
+ private String name;
+ private int age;
+
+ // Constructor
+ public Person(String name, int age) {
+     this.name = name;
+     this.age = age;
+ }
+
+ // Getter method for name
+ public String getName() {
+     return name;
+ }
+
+ // Setter method for name
+ public void setName(String name) {
+     this.name = name;
+ }
+
+ // Getter method for age
+ public int getAge() {
+     return age;
+ }
+
+ // Setter method for age
+ public void setAge(int age) {
+     if (age > 0) {
+         this.age = age;
+     } else {
+         System.out.println("Age must be positive");
+     }
+ }
+}
+
+//Main class to demonstrate encapsulation
+public class EncapsulationDemo {
+ public static void main(String[] args) {
+     Person person = new Person("Ranjita", 20);
+     
+     // Accessing private fields through methods
+     System.out.println("Name: " + person.getName());
+     System.out.println("Age: " + person.getAge());
+
+     // Modifying values using setters
+     person.setName("Rakshita");
+     person.setAge(21);
+
+     System.out.println("Updated Name: " + person.getName());
+     System.out.println("Updated Age: " + person.getAge());
+ }
+}
+
+
+
+
+Output:
+
+Name: Ranjita
+Age: 20
+Updated Name: Rakshita
+Updated Age: 21
+
+
+
+2.Create and abstract class and implement abstract methods to print student details.
+
+2.-->
+
+package laball;
+
+//Abstract class
+abstract class Student {
+ // Abstract method to print student details
+ abstract void printDetails();
+}
+
+//Subclass implementing abstract method
+class CollegeStudent extends Student {
+ private String name;
+ private int age;
+ private String course;
+
+ // Constructor
+ public CollegeStudent(String name, int age, String course) {
+     this.name = name;
+     this.age = age;
+     this.course = course;
+ }
+
+ // Implementing abstract method
+ @Override
+ void printDetails() {
+     System.out.println("Student Name: " + name);
+     System.out.println("Age: " + age);
+     System.out.println("Course: " + course);
+ }
+}
+
+//Main class to demonstrate abstract class and method
+public class StudentDemo {
+ public static void main(String[] args) {
+     Student student = new CollegeStudent("Ranjita", 20, "Computer Science");
+     student.printDetails();
+ }
+}
+
+
+Output:
+
+Student Name: Ranjita
+Age: 20
+Course: Computer Science
+
+
+
+

@@ -1,0 +1,172 @@
+1. Write a program which calculates the monthly bill amount for Electricity bill
+
+1.--->
+
+package com.interfacedemo;
+
+public class ElectricityBill 
+{
+    int units; 
+
+    
+    ElectricityBill(int units) 
+    {
+        this.units = units;
+    }
+
+
+    double calculateBill()
+   {
+        return 0;
+    }
+}
+
+
+package com.interfacedemo;
+
+public class ElectricityBillCalculator {
+    public static void main(String[] args) 
+   {
+        int unitsConsumed = 250; 
+
+        ResidentialBill myBill = new ResidentialBill(unitsConsumed);
+        System.out.println(" Electricity Bill Calculator ");
+        System.out.println("----------------------------------");
+        System.out.println(" Residential Plan");
+        System.out.println(" Units Consumed: " + unitsConsumed);
+        System.out.printf(" Total Bill Amount: ₹%.2f%n", myBill.calculateBill());
+    }
+}
+
+
+Output-->
+
+ Electricity Bill Calculator 
+----------------------------------
+ Residential Plan
+ Units Consumed: 250
+ Total Bill Amount: ₹525.00
+
+
+2.  Write a program to calculate area of Rectangle, Square, Circle and Triangle using inheritance
+
+2.--->
+
+package interface1;
+
+public class Area {
+    double calculateArea() 
+    {
+        return 0;
+    }
+}
+
+
+package interface1;
+
+public class Rectangle extends Area 
+   {
+    double length, width;
+    
+    Rectangle(double length, double width) 
+    {
+        this.length = length;
+        this.width = width;
+    }
+
+    double calculateArea() 
+    {
+        return length * width;
+    }
+}
+
+
+package interface1;
+
+public class Square extends Area 
+   {
+    double side;
+
+    Square(double side) 
+   {
+        this.side = side;
+    }
+
+   
+    double calculateArea() {
+        return side * side;
+    }
+}
+
+
+package interface1;
+
+public class Circle extends Area
+  {
+    double radius;
+
+   
+    Circle(double radius) 
+    {
+        this.radius = radius;
+    }
+
+    
+    double calculateArea() 
+    {
+        return Math.PI * radius * radius;
+    }
+}
+
+
+package interface1;
+
+public class Triangle extends Area 
+{
+    double base, height;
+
+    
+    Triangle(double base, double height)
+   {
+        this.base = base;
+        this.height = height;
+    }
+
+    
+    double calculateArea() 
+    {
+        return 0.5 * base * height;
+    }
+}
+
+
+package interface1;
+
+public class AreaCalculate {
+    public static void main(String[] args) 
+{
+        
+        Rectangle rectangle = new Rectangle(5, 4);
+        Square square = new Square(4);
+        Circle circle = new Circle(7);
+        Triangle triangle = new Triangle(6, 8);
+
+       
+        System.out.println(" Calculate the Area ");
+        System.out.println("----------------------------");
+        System.out.println(" Area of Rectangle: " + rectangle.calculateArea() + " square units");
+        System.out.println(" Area of Square: " + square.calculateArea() + " square units");
+        System.out.println(" Area of Circle: " + circle.calculateArea() + " square units");
+        System.out.println(" Area of Triangle: " + triangle.calculateArea() + " square units");
+    }
+}
+
+
+Output-->
+
+Calculate the Area 
+----------------------------
+ Area of Rectangle: 20.0 square units
+ Area of Square: 16.0 square units
+ Area of Circle: 153.93804002589985 square units
+ Area of Triangle: 24.0 square units

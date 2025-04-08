@@ -1,0 +1,86 @@
+1.Write a Java program to retrieve, add, remove, the  element of a  list.
+
+1.-->
+
+package laball;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ListElement {
+    public static void main(String[] args) {
+       
+        List<String> names = new ArrayList<>();
+
+        
+        names.add("Ranjita");
+        names.add("Revankar");
+        names.add("Java");
+        names.add("Programming");
+
+        System.out.println("Original List: " + names);
+
+       
+        String secondElement = names.get(1);
+        System.out.println("Retrieved Element: " + secondElement);
+
+        
+        String removedElement = names.remove(2);
+        System.out.println("Removed Element: " + removedElement);
+
+       
+        System.out.println("Updated List: " + names);
+    }
+}
+
+
+Output:-->
+	
+	Original List: [Ranjita, Revankar, Java, Programming]
+	Retrieved Element: Revankar
+	Removed Element: Java
+	Updated List: [Ranjita, Revankar, Programming]
+
+
+------------------------------------------------------------------------------------------
+
+2.Write a Java program to sort a given  list.
+
+2.-->
+
+package laball;
+
+import java.util.Arrays;
+
+public class SortList
+{
+	
+		public static void main(String[] args) 
+		{
+			int[] intarray = {6,11,9,4,12,5};
+			
+			char [] strarray = {'p','y','t','h','o','n'};
+			
+			String [] strarray1 = {"R","A","N","J","I","T","A"};
+			
+			Arrays.sort(intarray);
+			Arrays.sort(strarray);
+			Arrays.sort(strarray1);
+			
+			System.out.println("Original List:  {6,11,9,4,12,5} {'p','y','t','h','o','n'}  {\"R\",\"A\",\"N\",\"J\",\"I\",\"T\",\"A\"}" );
+			
+			System.out.println("Array 1 :"+Arrays.toString(intarray));
+			
+			System.out.println("Array 2 :"+Arrays.toString(strarray));
+			
+			System.out.println("Array 3 :"+Arrays.toString(strarray1));
+			
+		}
+}
+
+
+Output:-->
+	Original List:  {6,11,9,4,12,5} {'p','y','t','h','o','n'}  {"R","A","N","J","I","T","A"}
+	Array 1 :[4, 5, 6, 9, 11, 12]
+	Array 2 :[h, n, o, p, t, y]
+	Array 3 :[A, A, I, J, N, R, T]

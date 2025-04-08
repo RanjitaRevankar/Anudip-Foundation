@@ -1,0 +1,79 @@
+1. Write a program to print greatest out of three entered integer.
+
+1.--->
+
+package com.lab;
+
+
+public class GreatestOfThree {
+
+	public static void main(String[] args) {
+		int a = 15, b = 25, c = 45; // Example values
+
+        // Find the greatest using ternary operator
+        int max = (a > b) ? ((a > c) ? a : c) : ((b > c) ? b : c);
+
+        System.out.println("Greatest number: " + max);
+   
+
+	}
+
+}
+
+Output-->
+	Greatest number: 45
+
+
+
+
+2. Write a  program to print whether entered number is Armstrong number or not.
+
+2.--->
+
+package com.lab;
+
+import java.util.Scanner;
+
+public class ArmstrongNumber {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt(), temp = num, sum = 0, digits = 0;
+
+        int n = num;
+        while (n > 0) {
+            n /= 10;
+            digits++;
+        }
+
+        temp = num;
+
+         while (temp > 0) {
+            int digit = temp % 10;
+            int power = 1;
+
+            // Manually compute digit^digits
+            for (int i = 0; i < digits; i++) {
+                power *= digit;
+            }
+
+            sum += power;
+            temp /= 10;
+        }
+
+        // Check if it is an Armstrong number
+        if (sum == num)
+            System.out.println(num + " is an Armstrong number.");
+        else
+            System.out.println(num + " is not an Armstrong number.");
+
+        sc.close();
+	}
+
+}
+
+Output-->
+	Enter a number: 153
+	153 is an Armstrong number.
+

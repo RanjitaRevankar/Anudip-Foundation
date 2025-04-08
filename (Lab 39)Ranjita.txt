@@ -1,0 +1,130 @@
+1.Write a Java program that creates a bank account with concurrent deposits and withdrawals using threads.
+
+1-->
+
+package com.bank;
+
+public class BankAccount 
+{
+    private int balance = 1000; 
+
+    
+    public synchronized void deposit(int amount)
+    {
+        balance += amount;
+        System.out.println("Deposited: " + amount + " | Current Balance: " + balance);
+    }
+
+   
+    public synchronized void withdraw(int amount) {
+        if (balance >= amount) {
+            balance -= amount;
+            System.out.println("Withdrew: " + amount + " | Current Balance: " + balance);
+        } else {
+            System.out.println("Insufficient balance to withdraw: " + amount);
+        }
+    }
+}
+
+package com.bank;
+
+public class WithdrawThread extends Thread {
+    BankAccount account;
+
+    WithdrawThread(BankAccount account) {
+        this.account = account;
+    }
+
+    public void run() {
+        account.withdraw(700); // Try withdrawing 700
+    }
+}
+
+package com.bank;
+
+public class DepositThread extends Thread {
+    BankAccount account;
+
+    DepositThread(BankAccount account) {
+        this.account = account;
+    }
+
+    public void run() {
+        account.deposit(500); 
+    }
+}
+
+package com.bank;
+
+public class BankTransaction {
+    public static void main(String[] args) {
+        BankAccount account = new BankAccount();
+
+        
+        DepositThread depositThread = new DepositThread(account);
+        WithdrawThread withdrawThread = new WithdrawThread(account);
+
+       
+        depositThread.start();
+        withdrawThread.start();
+    }
+}
+
+Output-->
+
+Deposited: 500 | Current Balance: 1500
+Withdrew: 700 | Current Balance: 800
+
+
+2.Write a Java program that sorts an array of integers using multiple threads.
+
+2.-->
+
+package com.bank;
+
+import java.util.Arrays;
+
+public class SortTask implements Runnable {
+    int[] arr;
+
+    SortTask(int[] arr) {
+        this.arr = arr;
+    }
+
+    public void run() {
+        Arrays.sort(arr);
+        System.out.println("Sorted: " + Arrays.toString(arr));
+    }
+}
+
+package com.bank;
+
+public class ParallelSort
+{
+    public static void main(String[] args) throws InterruptedException
+    {
+        int[] arr1 = {5, 2, 8, 1};
+        int[] arr2 = {9, 4, 6, 3};
+
+        Thread t1 = new Thread(new SortTask(arr1));
+        Thread t2 = new Thread(new SortTask(arr2));
+
+        t1.start();
+        t2.start();
+
+        t1.join();
+        t2.join();
+
+    }
+}
+
+Output-->
+
+Sorted: [3, 4, 6, 9]
+Sorted: [1, 2, 5, 8]
+
+
+
+
+
+

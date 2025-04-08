@@ -1,0 +1,155 @@
+1.Write a database connectivity program to connect with database.
+You can select any database.
+perform select operation to print records from database table. 
+
+1-->
+
+package com.database;
+
+import java.sql.*;
+import java.util.Scanner;
+
+public class Records {
+    public static void main(String[] args) {
+        try {
+            
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/firstconnection", "root", "12345");
+
+            System.out.println("---- Before Update ----");
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM firstable");
+            while (rs.next()) {
+                System.out.println("ID: " + rs.getInt("uid") + " | Name: " + rs.getString("uname"));
+            }
+
+       
+            Scanner sc = new Scanner(System.in);
+            System.out.print("\nEnter ID to update: ");
+            int id = sc.nextInt();
+            System.out.print("Enter new name: ");
+            String newName = sc.next();
+
+          
+            String query = "UPDATE firstable SET uname = ? WHERE uid = ?";
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, newName);
+            ps.setInt(2, id);
+
+            int updated = ps.executeUpdate();
+            if (updated > 0) {
+                System.out.println("\n Name updated successfully!");
+            } else {
+                System.out.println("\n No record found for this ID.");
+            }
+
+            System.out.println("\n---- After Update ----");
+            ResultSet rs2 = stmt.executeQuery("SELECT * FROM firstable");
+            while (rs2.next()) {
+                System.out.println("ID: " + rs2.getInt("uid") + " | Name: " + rs2.getString("uname"));
+            }
+
+            rs.close();
+            rs2.close();
+            ps.close();
+            stmt.close();
+            con.close();
+            sc.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+Output-->
+
+---- Before Update ----
+ID: 1 | Name: Ranjita
+ID: 2 | Name: Amit
+ID: 3 | Name: Ravi
+
+Enter ID to update: 2
+Enter new name: Akash
+
+Name updated successfully!
+
+---- After Update ----
+ID: 1 | Name: Ranjita
+ID: 2 | Name: Akash
+ID: 3 | Name: Ravi
+
+
+
+2.Create a database Country with database table as countries inside it.
+use show databse command and display all databses.
+use ALTER command to rename countries table to new_country
+remove column from table and add a new column.
+
+2-->
+
+package com.database;
+import java.sql.*;
+
+public class CountryDatabase{
+    public static void main(String[] args) {
+        try {
+
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/", "root","12345");
+            Statement stmt = con.createStatement();
+
+            stmt.executeUpdate("CREATE DATABASE IF NOT EXISTS Country");
+            System.out.println("Database 'Country' created!");
+
+            System.out.println("\n All Databases:");
+            ResultSet rs = stmt.executeQuery("SHOW DATABASES");
+            while (rs.next()) {
+                System.out.println("- " + rs.getString(1));
+            }
+
+            
+            stmt.execute("USE Country");
+
+
+            stmt.executeUpdate("CREATE TABLE IF NOT EXISTS countries (id INT, name VARCHAR(50), code VARCHAR(10))");
+            System.out.println("\n Table 'countries' created!");
+
+            stmt.executeUpdate("ALTER TABLE countries RENAME TO new_country");
+            System.out.println("Table renamed to 'new_country'");
+
+            stmt.executeUpdate("ALTER TABLE new_country DROP COLUMN code");
+            System.out.println("Column 'code' removed");
+
+            stmt.executeUpdate("ALTER TABLE new_country ADD COLUMN continent VARCHAR(30)");
+            System.out.println("Column 'continent' added");
+
+            rs.close();
+            stmt.close();
+            con.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+Output-->
+
+Database 'Country' created!
+
+All Databases:
+- Country
+- information_schema
+- mysql
+- performance_schema
+- sys
+
+ Table 'countries' created!
+ Table renamed to 'new_country'
+ Column 'code' removed
+ Column 'continent' added
+
+

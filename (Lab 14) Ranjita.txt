@@ -1,0 +1,94 @@
+1. Write a class with multiple area methods.
+Implement compile time polymorphism using method overloading.
+
+1.-->
+
+package laball;
+
+//Class with multiple area methods implementing method overloading
+class AreaCalculator {
+ // Method to calculate area of a rectangle
+ double area(double length, double width) {
+     return length * width;
+ }
+
+ // Method to calculate area of a circle
+ double area(double radius) {
+     return 3.14159 * radius * radius;
+ }
+
+ // Method to calculate area of a triangle
+ double area(double base, double height, boolean is Triangle) {
+     return 0.5 * base * height;
+ }
+}
+
+//Main class to test the method overloading
+public class AreaDemo {
+ public static void main(String[] args) {
+     AreaCalculator calculator = new AreaCalculator();
+
+     System.out.println("Rectangle Area: " + calculator.area(20, 6));
+     System.out.println("Circle Area: " + calculator.area(8));
+     System.out.println("Triangle Area: " + calculator.area(10, 5, true));
+ }
+}
+
+
+Output:
+
+Rectangle Area: 120.0
+Circle Area: 201.06176
+Triangle Area: 25.0
+
+
+
+2. Write a class with its child class
+Implement run time polymorphism using method overriding.
+
+2.-->
+
+package laball;
+
+//Parent class
+class Animal {
+ // Method to be overriding
+ void sound() {
+     System.out.println("Animals make sound");
+ }
+}
+
+//Child class overriding the method
+class Dog extends Animal {
+ @Override
+ void sound() {
+     System.out.println("Dog barks");
+ }
+}
+
+//Another child class
+class Cat extends Animal {
+ @Override
+ void sound() {
+     System.out.println("Cat meows");
+ }
+}
+
+//Main class to demonstrate runtime polymorphism
+public class AnimalSoundDemo {
+ public static void main(String[] args) {
+     Animal myAnimal;  // Parent class reference
+
+     myAnimal = new Dog();
+     myAnimal.sound(); // Calls Dog's sound method
+
+     myAnimal = new Cat();
+     myAnimal.sound(); // Calls Cat's sound method
+ }
+}
+
+
+Output:
+
+Dog barks
+Cat meows

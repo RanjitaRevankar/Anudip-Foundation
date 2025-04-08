@@ -1,0 +1,231 @@
+1.Create an entity class as  Student with few attributes.
+Create seperate session to insert few records of students in same context.
+Use JPA with hibernate.
+
+1-->
+
+** Student Class
+
+package com.demo;
+public class Emp {
+    private int eid;
+    private String ename;
+    private double esalary;
+
+    public Emp() {}
+    public Emp(int eid, String ename, double esalary) {
+        this.eid = eid;
+        this.ename = ename;
+        this.esalary = esalary;
+    }
+    public int getEid() { return eid; }
+    public void setEid(int eid) { this.eid = eid; }
+    public String getEname() { return ename; }
+    public void setEname(String ename) { this.ename = ename; }
+    public double getEsalary() { return esalary; }
+    public void setEsalary(double esalary) { this.esalary = esalary; }
+}
+
+** Main Class
+
+package com.demo;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+public class EmpApp {
+    public static void main(String[] args) {
+        Configuration cfg = new Configuration();
+        cfg.configure("hibernate.cfg.xml");
+
+        SessionFactory sf = cfg.buildSessionFactory();
+        Session session = sf.openSession();
+        Transaction tx = session.beginTransaction();
+
+        Emp e1 = new Emp(101, "Ravi", 40000);
+        Emp e2 = new Emp(102, "Neha", 55000);
+
+        session.save(e1);
+        session.save(e2);
+
+        tx.commit();
+        session.close();
+        sf.close();
+
+        System.out.println("Employees inserted successfully.");
+    }
+}
+
+** Hibernate Configuration
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration SYSTEM "hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+    <property name="connection.url">jdbc:mysql://localhost:3306/firsthbmdemo</property>
+    <property name="connection.username">root</property>
+    <property name="connection.password">mysql</property>
+    <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+    <property name="show_sql">true</property>
+    <property name="format_sql">true</property>
+    <property name="hbm2ddl.auto">update</property>
+    <mapping resource="Emp.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>
+
+
+** Student xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping SYSTEM
+	"hibernate-mapping-3.0.dtd">
+  
+   <hibernate-mapping>    
+    
+  <class name="com.demo.Student" table="student"> 
+  
+  <id name="sid" column="sid">  
+     <generator class="increment"></generator>  
+    </id>   
+    
+    <property name="sname"></property>  
+    <property name="spercent"></property>  
+            
+  </class>  
+            
+ </hibernate-mapping> 
+
+
+
+2. Create an entity class as  Employee with few attributes.
+Create seperate session to insert few records of students in same context.
+Use JPA with hibernate.
+
+2.-->
+
+** Entity Class
+
+package com.demo;
+
+public class Emp 
+{
+	int id;
+	String name;
+	double salary;
+
+	public Emp() {
+		super();
+	}
+
+	public Emp(int id, String name, double salary) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.salary = salary;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public double getSalary() {
+		return salary;
+	}
+
+	public void setSalary(double salary) {
+		this.salary = salary;
+	}
+}
+
+
+** Main Class
+
+package com.demo;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+public class EmpMain 
+{
+	public static void main(String[] args)
+	{
+	     Configuration cfg = new Configuration();
+	     cfg.configure("hibernate.cfg.xml");
+
+	     SessionFactory sf = cfg.buildSessionFactory();
+	     Session session = sf.openSession();
+
+		 Transaction tx = session.beginTransaction();
+
+		 Emp emp = new Emp();
+		 emp.setId(1);
+		 emp.setName("Ram");
+		 emp.setSalary(20000.00);
+
+		 session.save(emp);	 
+		 tx.commit();
+	     session.close();
+
+	     System.out.println("Employee inserted successfully.");
+	}
+}
+
+
+** Hibernate Configuration File
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-configuration SYSTEM
+	"hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>  
+    <session-factory>  
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>    
+        <property name="connection.url">jdbc:mysql://localhost:3306/empdb</property>  
+        <property name="connection.username">root</property>  
+        <property name="connection.password">mysql</property>  
+        <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>  
+        <property name="show_sql">true</property>  
+        <property name="format_sql">true</property>  
+        <property name="hbm2ddl.auto">update</property>  
+        
+        <mapping resource="Emp.hbm.xml"/>  
+    </session-factory>  
+</hibernate-configuration>
+
+** employee xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping SYSTEM
+	"hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="com.demo.Emp" table="emp"> 
+    <id name="id" column="id">  
+      <generator class="increment"/>  
+    </id>   
+
+    <property name="name"/>  
+    <property name="salary"/>  
+  </class>  
+</hibernate-mapping>
+
+

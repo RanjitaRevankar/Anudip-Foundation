@@ -1,0 +1,106 @@
+1.  Write a  java program for Exception Handling using throw keyword.
+
+1-->
+
+package com.lab;
+
+public class Throw
+{
+    
+   
+    static void checkAge(int age) 
+    {
+        if (age < 18) {
+            throw new ArithmeticException("Access denied - You must be 18 or older.");
+        } else {
+            System.out.println("Access granted - You are old enough!");
+        }
+    }
+
+    public static void main(String[] args) 
+    {
+        try {
+            checkAge(16);  
+        } catch (ArithmeticException e) {
+            System.out.println("Exception caught: " + e.getMessage());
+        }
+
+      
+        checkAge(20);
+    }
+}
+
+
+Output-->
+
+Exception caught: Access denied - You must be 18 or older.
+Access granted - You are old enough!
+
+
+
+
+2. Create two thread.one thread is finding average of first 50 numbers and other thread is printing square of number store in array arr={10,15,20,25,30}
+
+2-->
+
+package com.lab;
+
+public class AverageThread extends Thread 
+{
+    public void run() 
+    {
+        int sum = 0;
+        for (int i = 1; i <= 50; i++)
+        {
+            sum += i;
+        }
+        double average = sum / 50.0;
+        System.out.println("Average of first 50 numbers: " + average);
+    }
+}
+
+package com.lab;
+
+public class SquareThread extends Thread
+{
+    public void run()
+    {
+        int[] arr = {10, 15, 20, 25, 30};
+        System.out.println("Squares of array elements:");
+        for (int num : arr) 
+        {
+            System.out.println(num + " * " + num + " = " + (num * num));
+        }
+    }
+}
+
+package com.lab;
+
+public class TwoThread
+{
+    public static void main(String[] args)
+    {
+        AverageThread t1 = new AverageThread();
+        SquareThread t2 = new SquareThread();
+
+        t1.start(); // Start thread 1
+        t2.start(); // Start thread 2
+    }
+}
+
+
+Output-->
+
+Squares of array elements:
+Average of first 50 numbers: 25.5
+10 * 10 = 100
+15 * 15 = 225
+20 * 20 = 400
+25 * 25 = 625
+30 * 30 = 900
+
+
+
+
+
+
